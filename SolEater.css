@@ -1,0 +1,257 @@
+/* ===== RESET & GLOBAL STYLES ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }  
+
+  body {
+    font-family: 'Roboto', sans-serif;
+    color: #fff;
+    background-color: #000;
+    background-image: url('Media/isometric-pattern.png'); /* Replace with your pattern image */
+    background-repeat: repeat;
+    background-size: 600px 600px;
+    background-attachment: fixed;  /* This makes the background image static */
+  }
+  
+  a:visited {
+    color: inherit; /* Use the same color as the unvisited state */
+  }
+
+  /* Generic fade-in/up effect */
+.fade-in-up {
+    opacity: 0;
+    transform: translateY(20px); /* Start 20px lower */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+  
+  /* When the element becomes visible, the class will be added */
+  .fade-in-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* ===== KEYFRAMES ===== */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .section-divider {
+    border: none;                  /* Remove default HR styles */
+    border-bottom: 1px solid #252323;  /* Add your custom thin gray line */
+    margin: 2rem 0;                /* Spacing before and after the divider */
+  }
+
+
+/* ===== HERO SECTION STYLES ===== */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 90vh; /* Full viewport height */
+    overflow: hidden;
+  }
+  
+  .hero video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the video covers the container */
+    z-index: -1;       /* Places the video behind the content */
+    opacity: 0;
+    animation: fadeInUp 5s ease forwards;
+    animation-delay: 0.1s;
+    border: 3px solid #333;
+  }
+  
+  
+  @keyframes fadeInUpContent {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: left;
+    height: 100%;
+    text-align: left;
+   margin-top: 5vh;
+   margin-left: 40vh;
+    
+  }
+
+  .hero-content h1 {
+    font-size: 6vh;
+
+    
+  }
+  
+  .hero-content p {
+    max-width: 800px;
+    font-size: 1.2rem;
+    line-height: 1.6;
+
+    margin-top: 1vh;
+    color: #ccc;
+    
+  }
+.project-roles span {
+  display: inline-block;
+  background-color: #333;
+  padding: 4px 8px;
+  margin: 10px 5px 5px 0;
+  border-radius: 4px;
+  font-size: 0.8rem;
+}
+  
+
+
+a.article-button {
+    display: inline-block;
+    background-color: #111;
+    color: #fff;
+    padding: 0.8rem 1.2rem;
+    border: 1px solid #444;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: background-color 0.3s, color 0.3s;
+    cursor: pointer;
+    margin-left:40vh;
+    margin-top:5vh;
+
+
+  }
+  a.article-button:hover {
+    background-color: #ccc;
+    color: #111;
+  }
+
+  /* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Body Style (Dark Background) */
+  body {
+    background-color: #111; /* Adjust as needed to match your site */
+    color: #fff;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Info Section Wrapper */
+  .info-section {
+    width: 90%;
+    max-width: 1200px;
+    margin: 3rem auto; /* Center horizontally, add vertical spacing */
+  }
+  
+  /* Grid Container */
+  .info-grid {
+    display: grid;
+    grid-gap: 2rem; /* Space between columns */
+    margin-bottom: 2rem; /* Spacing after each row */
+  }
+  
+  /* First row has 2 columns (CHALLENGE & OPPORTUNITY) */
+  .info-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+
+
+  /* Second row (TEAM, TIMELINE, TOOL, TASK) 
+     also uses auto-fit for a flexible layout. */
+  .info-grid.second-row {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+  
+  /* Column Styling */
+  .info-col h3 {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    color: #8a8a8a; /* A slightly lighter shade for headings */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .info-col p {
+    line-height: 1.6;
+    font-size: 0.9rem;
+    color: #8a8a8a;
+    font-weight: 1px;
+
+  }
+  
+  
+
+  /* ===== SIDEBAR ===== */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 10vw;  /* ~10% of viewport width */
+    height: 100vh;
+    background-color: #0c0c0c;
+    padding: 20px;
+    overflow-y: auto;
+    opacity: 0;
+    animation: fadeInUp 1s ease forwards;
+    animation-delay: 0.2s;
+  }
+  .sidebar h1 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+  }
+  .sidebar p {
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+  }
+  .sidebar ul {
+    list-style: none;
+  }
+  .sidebar li {
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: font-weight 0.3s ease;
+  }
+  .sidebar li:hover {
+    font-weight: bold;
+  }
+
+  /* ===== RESPONSIVE ADJUSTMENTS ===== */
+  @media (max-width: 768px) {
+    .hero-content h1 {
+      font-size: 2rem;
+    }
+    .hero-content p {
+      font-size: 1rem;
+    }
+    .additional-content h2 {
+      font-size: 1.5rem;
+    }
+    .additional-content p {
+      font-size: 0.9rem;
+    }
+  }

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SolEater</title>
+  <!-- Link to External CSS -->
+  <link rel="stylesheet" href="SolEater.css" />
+</head>
+<body>
+  <!-- Hero Section with Autoplay Video -->
+  <section class="hero">
+    <video autoplay muted loop playsinline>
+      <!-- Replace 'Media/ExplodedView.mp4' with your actual video file -->
+      <source src="Media/ExplodedView.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+  </section>
+  
+  <hr class="section-divider">
+
+  <!-- Additional Content Example -->
+  <section class="hero-content fade-in-up">
+    <h1>UCI SolEater</h1>
+    <p>
+      Designed, manufactured, and integrated an Aeroshell for UCI's first Solar Car.
+    </p>
+    <div class="project-roles">
+      <span>Solidworks</span> | <span>Composites</span> | <span>CNC</span>
+    </div>
+  </section>
+
+  <!-- A Button Linking to an External Website -->
+  <a href="https://www.ucisolarcar.org/"  target="_blank" rel="noopener noreferrer" class="article-button fade-in-up">
+    Visit the Website &rarr;
+  </a>
+
+  <hr class="section-divider">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Project Info Grid</title>
+    <link rel="stylesheet" href="info-grid.css" />
+  </head>
+  <body>
+  
+    <div class="info-section fade-in-up">
+      <!-- First Row: CHALLENGE and OPPORTUNITY -->
+      <div class="info-grid">
+        <div class="info-col">
+          <h3>CHALLENGE</h3>
+          <p>
+            Design a Solar Car to compete in an annual Solar Car Grand Prix in Bowling Green, Kentucky. Build the vehicle to pass scrutineering and compete in the endurance race.
+          </p>
+        </div>
+        <div class="info-col">
+          <h3>Aerobody Subteam</h3>
+          <p>
+            Design, manufacture, and implement an aerodynamic shell component onto the car. My main roles involved composite manufacturing and CAD integration. 
+          </p>
+        </div>
+      </div>
+      <hr class="section-divider">
+      <!-- Second Row: TEAM, TIMELINE, TOOL, TASK -->
+      <div class="info-grid second-row fade-in-up">
+        <div class="info-col">
+          <h3>TEAM</h3>
+          <p>
+          A team of 9 UCI Students <br/>working on our Aerobody.
+          </p>
+        </div>
+        <div class="info-col fade-in-up">
+          <h3>TIMELINE</h3>
+          <p>(Sep 2024 – Present)</p>
+        </div>
+        <div class="info-col fade-in-up">
+          <h3>Techniques</h3>
+          <p>
+            CNC<br/>
+            Composites<br/>
+            CAD
+          </p>
+        </div>
+        <div class="info-col fade-in-up">
+          <h3>Manufacturing Steps</h3>
+          <p>
+            Construct Shell Components<br/>
+            Shell Surface Work/Repair<br/>
+            Combine Shell Components<br/>
+            Integrate onto Chassis/Rest of Car
+          </p>
+        </div>
+      </div>
+    </div>
+  
+  </body>
+  </html>
+  
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <h1>Brian Luu</h1>
+    <p>Aerospace Engineer</p>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li>About Me</li>
+      <li><a href="resume.html">Resume</a></li>
+      <li>LinkedIn</li>
+    </ul>
+  </aside>
+
+  <!-- Scripts -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+  const animatedElements = document.querySelectorAll('.fade-in-up');
+  const observerOptions = {
+    threshold: 0.2  // Trigger when 20% of the element is visible
+  };
+
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  animatedElements.forEach(el => {
+    observer.observe(el);
+  });
+});
+  </script>
+  
+</body>
+</html>
