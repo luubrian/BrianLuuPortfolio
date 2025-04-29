@@ -5,6 +5,72 @@
     box-sizing: border-box;
   }  
 
+ 
+/* 1) Offset everything by your 10vw sidebar, prevent horizontal scroll */
+.feature-rows {
+  margin-left: 10vw;  
+  padding-right: 2rem;
+  max-width: calc(100vw - 10vw - 2rem);
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+/* 2) Feature row flex container */
+.feature-row {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 4rem;
+  overflow: hidden;       /* clip any rogue overflow */
+}
+
+/* 3) Reverse even rows */
+.feature-row:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+/* 4) Text block: fixed ~40% width */
+.feature-text {
+  flex: 0 0 40%;
+  max-width: 40%;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* 5) Image block: ~60% width */
+.feature-image {
+  flex: 0 0 60%;
+  max-width: 60%;
+}
+.feature-image img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+  border-radius: 12px;
+}
+
+/* 6) Responsive fallback */
+@media (max-width: 768px) {
+  .feature-row {
+    flex-direction: column;
+  }
+  .feature-text,
+  .feature-image {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  .feature-text {
+    text-align: center;
+  }
+}
+
+  /* Prevent any right-scroll on the entire page */
+html, body {
+  overflow-x: hidden;
+}
+
+
   body {
     font-family: 'Roboto', sans-serif;
     color: #fff;
@@ -71,6 +137,8 @@
     animation: fadeInUp 5s ease forwards;
     animation-delay: 0.1s;
     border: 3px solid #333;
+    cursor: s-resize;
+    
   }
   
   
@@ -87,7 +155,7 @@
   
   .hero-content {
     position: relative;
-    z-index: 1;
+    z-index: 0;
     display: flex;
     flex-direction: column;
     justify-content: left;
@@ -96,7 +164,8 @@
     text-align: left;
    margin-top: 5vh;
    margin-left: 40vh;
-    
+    cursor: s-resize;
+
   }
 
   .hero-content h1 {
@@ -122,7 +191,40 @@
   border-radius: 4px;
   font-size: 0.8rem;
 }
-  
+  /* ensure the hero is the positioning context */
+.hero {
+  position: relative;
+}
+
+/* overlay text on top of the video */
+.hero-overlay-text {
+  position: absolute;
+  top: 95%;               /* vertically center—tweak as needed */
+  left: 55%;              /* horizontally center */
+  transform: translate(-50%, -50%);
+  z-index: 2;             /* above the video (z-1) and hero-content (z-1) */
+  pointer-events: none;   /* so clicks pass through */
+  text-align: center;
+}
+
+.hero-overlay-text p {
+  color: #ccc;            /* white on dark video */
+  font-size: 1.5rem;        /* adjust for readability */
+  text-shadow: 0 0 8px rgba(0,0,0,0.7);
+  margin: 0;
+  opacity: 0;
+  animation: fadeInUp 1s ease forwards;
+  animation-delay: 1s;
+}
+
+
+/* ===== REDEFINE BOUNCE ===== */
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(4px); }
+}
+
+
 
 
 a.article-button {
@@ -157,7 +259,7 @@ a.article-button {
   body {
     background-color: #111; /* Adjust as needed to match your site */
     color: #fff;
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', sans-serif;
   }
   
   /* Info Section Wrapper */
@@ -190,7 +292,7 @@ a.article-button {
   .info-col h3 {
     font-size: 1rem;
     margin-bottom: 1rem;
-    color: #8a8a8a; /* A slightly lighter shade for headings */
+    color: #ccc; /* A slightly lighter shade for headings */
     text-transform: uppercase;
     letter-spacing: 1px;
   }
@@ -255,3 +357,321 @@ a.article-button {
       font-size: 0.9rem;
     }
   }
+
+
+  /* === ensure nav stays on top of the scroll === */
+.sidebar {
+  z-index: 10;
+}
+
+/* make nav stay on top */
+.sidebar {
+  z-index: 10;
+}
+
+/* ensure the gallery container can position children */
+.infinite-scroll-section {
+  position: relative;
+}
+
+/* === MAKE HOVER PROMPT VISIBLE === */
+.infinite-scroll-section {
+  /* ensure the section won’t clip the prompt */
+  overflow: visible !important;
+  position: relative; 
+}
+
+.hover-prompt {
+  position: absolute;
+  top: 5vh;               /* adjust to sit where you want */
+  left: 30vw;
+  transform: translateX(-50%);
+  color: #ffffff;             /* bright enough to see */
+  font-size: 2rem;
+  font-weight: bold;
+  pointer-events: none;
+  z-index: 999 !important; /* above everything in this section */
+  opacity: 1 !important;   /* no fade-out */
+  
+}
+
+/* If you still want the bounce animation: */
+.hover-prompt .hover-arrow {
+  fill: #ccc;
+  animation: bounce 1.5s ease-in-out infinite;
+  width: 1.5rem;    /* was 1.2rem */
+  height: 1.5rem;   /* was 1.2rem */
+  margin-left: 0.2rem; /* adjust if you’d like a bit less gap */
+}
+
+
+/* ===== INFINITE SCROLLING GALLERY ===== */
+.infinite-scroll-section {
+  position: relative;
+  width: 100vw;
+  height: 100vh;          /* full viewport */
+  overflow: hidden;
+  z-index: 1;             /* behind the sidebar */
+}
+
+.scroll-wrapper {
+  position: absolute;
+  top: 30vh;              /* 30% blank above */
+  left: 0;
+  width: 100vw;
+  height: 40%;           /* center 40% for images */
+  overflow: hidden;
+  z-index: 1;
+}
+
+.scroll-content {
+  display: flex;
+  gap: 1rem;
+  margin-right: -1rem;    /* hides the last gap */
+  /* no animation here */
+}
+
+
+@keyframes scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.scroll-item {
+  position: relative;
+  flex: 0 0 auto;
+  aspect-ratio: 16/9;     /* lock ratio */
+  height: 100%;           /* fill 40vh */
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease; /* quick zoom */
+  z-index: 1;             /* sits below hovered item */
+  margin: 0;
+  aspect-ratio: auto;   /* allow different image aspect ratios */
+}
+
+
+.scroll-item img {
+  width: 70vh;
+  height: 100%;
+  object-fit: contain;    /* show full image */
+  display: block;
+}
+
+
+/* === OVERLAY + DESCRIPTION === */
+.scroll-item .overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0);
+  opacity: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  transition:
+    background 0.5s ease 1s,
+    opacity    0.5s ease 1s;
+}
+
+.scroll-item:hover .overlay {
+  background: rgba(0,0,0,0.7);
+  opacity: 1;
+}
+
+.scroll-item .desc {
+  color: #fff;
+  font-size: 1.2rem;
+  text-align: center;
+  padding: 0 1rem;
+}
+
+.scroll-wrapper {
+  position: absolute;
+  top: 30vh;
+  left: 0;
+  width: 100vw;
+  height: 40vh;
+  overflow: hidden;
+}
+
+.scroll-content {
+  display: flex;
+  gap: 1rem;
+  margin-right: -1rem;    /* hide the last gap */
+  will-change: transform; /* hint for performance */
+}
+
+.scroll-item {
+  flex: 0 0 auto;
+  aspect-ratio: auto; 
+  height: 45vh;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.scroll-item:hover {
+  transform: scale(1.1);
+  z-index: 2;
+}
+
+.scroll-item .overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0);
+  opacity: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.5s ease 0.5s, opacity 0.5s ease 0.5s;
+}
+
+.scroll-item:hover .overlay {
+  background: rgba(0,0,0,0.7);
+  opacity: 1;
+}
+
+/* 1) Allow vertical overflow so cards can grow above/below the strip */
+.infinite-scroll-section {
+  overflow-x: hidden;   /* keep the horizontal scroll hidden */
+  overflow-y: visible;  /* allow vertical overflow */
+}
+
+.scroll-wrapper {
+  overflow: visible;    /* let items pop out */
+}
+
+/* 2) Pure-transform zoom on hover */
+.scroll-item {
+  transition: transform 0.3s ease;
+  transform-origin: center center;
+}
+
+.scroll-item:hover {
+  /* move up by 20vh to center an 80vh-high card,
+     then scale by 2× to reach 80vh from 40vh */
+  transform: translateY(0) scale(2);
+  z-index: 10;  /* above siblings */
+}
+
+/* 3) Overlay fade (unchanged) */
+.scroll-item .overlay {
+  transition: background 0.3s ease 0.1s,
+              opacity    0.3s ease 0.1s;
+}
+
+.scroll-item:hover .overlay {
+  background: rgba(0,0,0,0.7);
+  opacity: 1;
+}
+
+
+.feature-section {
+  margin-left: 15vw;
+  margin-right: 15vw;
+  max-width: calc(100vw - 30vw);
+  padding: 4rem 0;
+  box-sizing: border-box;
+}
+
+.feature-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.feature-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+  gap: 2rem;             /* still keep a bit of breathing room */
+}
+
+/* Alternate layout */
+.feature-row:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+/* Text always 45% */
+.feature-text {
+  flex: 0 0 45%;
+  max-width: 45%;
+  z-index: 1;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Image always 45%, then we pull it into center */
+.feature-image {
+  flex: 0 0 60%;
+  max-width: 80%;
+  position: relative;
+  overflow: hidden;
+  z-index: 2;
+}
+.feature-image img {
+  width: 100%;
+  display: block;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+/* ——— PULL IMAGES INTO THE CENTER ——— */
+.feature-row:nth-child(odd) .feature-image {
+  margin-right: 20vw;   /* image on the right slides left into center */
+}
+.feature-row:nth-child(even) .feature-image {
+  margin-left:  10vw;   /* image on the left slides right into center */
+}
+
+
+
+/* ===== SECTION HEADER (unchanged) ===== */
+.feature-section-header {
+  font-size: 2.5rem;
+  color: #fff;
+  margin-bottom: 10vh;
+  display: inline-block;
+  position: relative;
+  margin-left: 10vw;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .feature-section {
+    margin-left: 2rem;
+    margin-right: 2rem;
+    padding: 2rem 0;
+  }
+  .feature-rows {
+    gap: 2rem;
+  }
+  .feature-row {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .feature-text,
+  .feature-image {
+    flex: 0 0 100%;
+    max-width: 100%;
+    margin: 0 !important; /* cancel the overlap pulls on mobile */
+  }
+  .feature-text {
+    text-align: center;
+  }
+}
+
+/* Style videos exactly like your feature images */
+.feature-image video {
+  width: 80%;
+  height: 60vh;           /* maintain aspect ratio */
+  object-fit: cover;      /* fill the box, cropping if needed */
+  border-radius: 12px;    /* match your images */
+  display: block;
+}
+

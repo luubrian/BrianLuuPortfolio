@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SolEater</title>
+  <!-- Link to External CSS -->
+  <link rel="stylesheet" href="A380.css" />
+</head>
+<body>
+  <!-- Hero Section with Autoplay Video -->
+  <section class="hero">
+      <!-- Replace 'Media/ExplodedView.mp4' with your actual video file -->
+      <img src="Media/A380Hero.png" alt="Project 1 Front" class="image-front">
+    <div class="hero-overlay-text">
+      <p>Scroll down to learn more</p>
+    </div>
+  </div>
+    
+  </section>
+  
+  <hr class="section-divider">
+
+  <!-- Additional Content Example -->
+  <section class="hero-content fade-in-up">
+    <h1>A380 CAD Model</h1>
+    <p>
+      CAD Practice using online drawings.
+    </p>
+    <div class="project-roles">
+      <span>Solidworks</span> 
+    </div>
+  </section>
+
+
+  <hr class="section-divider">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Project Info Grid</title>
+    <link rel="stylesheet" href="info-grid.css" />
+  </head>
+  <body>
+  
+    <div class="info-section fade-in-up">
+      <!-- First Row: CHALLENGE and OPPORTUNITY -->
+      <div class="info-grid">
+        <div class="info-col">
+          <h3>CHALLENGE</h3>
+          <p>
+            Learn Solidworks from scratch using tutorials and prior CAD knowledge.
+          </p>
+        </div>
+        <div class="info-col">
+          <h3>Process</h3>
+          <p>
+            Used online tutorials, drawings, and databases to replicate the plane as close as possible. Reapplying previous Autodesk Inventor experience to Solidworks.
+          </p>
+        </div>
+      </div>
+      <hr class="section-divider">
+      
+          </p>
+        </div>
+      </div>
+    </div>
+  
+  </body>
+  </html>
+  
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <h1>Brian Luu</h1>
+    <p>Aerospace Engineer</p>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li>About Me</li>
+      <li><a href="resume.html">Resume</a></li>
+      <li>LinkedIn</li>
+    </ul>
+  </aside>
+
+  <!-- Scripts -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+  const animatedElements = document.querySelectorAll('.fade-in-up');
+  const observerOptions = {
+    threshold: 0.2  // Trigger when 20% of the element is visible
+  };
+
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  animatedElements.forEach(el => {
+    observer.observe(el);
+  });
+});
+  </script>
+  
+</body>
+</html>
+
+</script>
+
+<!-- ===== FEATURE SECTION ===== -->
+<div class="feature-section fade-in-up">
+  <!-- Section Header -->
+  <h2 class="feature-section-header">Key Features</h2>
+
+  <!-- All your rows live here -->
+  <section class="feature-rows fade-in-up">
+
+    <!-- Row 1: Text left, Image right -->
+    <div class="feature-row fade-in-up">
+      <div class="feature-text">
+        <h3>See new patterns in a card layout</h3>
+        <p>Identify anomalies and trends in new data that deviate from expectations, displayed as card components.</p>
+      </div>
+      <div class="feature-image fade-in-up">
+        <!-- ← Put your second image here -->
+        <img src="Media/A380Hero.png" alt="Card layout screenshot">
+      </div>
+    </div>
+
+    <!-- Row 2: Image left, Text right -->
+    <div class="feature-row fade-in-up">
+      <div class="feature-text fade-in-up">
+        <h3>Foam CNC Work </h3>
+        <p><br>Accumulated over 100+ hours working with CNC. Foam was a big part of our composite work from the sideshell male plug to the canopy layup mold. </p>
+      </div>
+      <div class="feature-image fade-in-up">
+        <video 
+          src="Media/IMG_0869(1).mov" 
+          autoplay 
+          muted 
+          loop 
+          playsinline 
+        
+        ></video>
+      </div>
+    </div>
+
+    <!-- Row 3: Image left (auto-flipped), Text right -->
+    <div class="feature-row fade-in-up">
+      <div class="feature-text fade-in-up">
+        <h3>My feature title (Video)</h3>
+        <p>Some descriptive text here.</p>
+      </div>
+      <div class="feature-image fade-in-up">
+        <video 
+          src="Media/ExplodedView.mp4" 
+          autoplay 
+          muted 
+          loop 
+          playsinline 
+         
+        ></video>
+      </div>
+    </div>
+
+    <!-- Add more rows the same way… -->
+  </section>
+</div>
