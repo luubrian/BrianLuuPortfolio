@@ -340,14 +340,15 @@ a.article-button {
   z-index: 1;
   word-wrap: break-word;
   overflow-wrap: break-word;
+  font-size: 1.5rem;
 }
 
 /* Image always 45%, then we pull it into center */
 .feature-image {
-  flex: 0 0 60%;
-  max-width: 80%;
+  flex: 0 0 50%;
+  max-width: 90%;
   position: relative;
-  overflow: hidden;
+  overflow: visible;
   z-index: 2;
 }
 .feature-image img {
@@ -392,6 +393,7 @@ a.article-button {
     gap: 1rem;
   }
   .feature-text,
+
   .feature-image {
     flex: 0 0 100%;
     max-width: 100%;

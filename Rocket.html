@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Rocket Part Design</title>
+  <!-- Link to External CSS -->
+  <link rel="stylesheet" href="Rocket.css" />
+</head>
+<body>
+  <!-- Hero Section with Autoplay Video -->
+  <section class="hero">
+      <!-- Replace 'Media/ExplodedView.mp4' with your actual video file -->
+      <img src="Media/RocketHero.png" alt="Project 1 Front" class="image-front">
+    <div class="hero-overlay-text">
+      <p>Scroll down to learn more</p>
+    </div>
+  </div>
+    
+  </section>
+  
+  <hr class="section-divider">
+
+  <!-- Additional Content Example -->
+  <section class="hero-content fade-in-up">
+    <h1>Rocket Part Design</h1>
+    <p>
+      Diversifying experience through rocket nozzle and injector design.
+    </p>
+    <div class="project-roles">
+        <span>Siemens NX</span> | <span>ANSYS Fluent </span> | <span>RPA</span>
+    </div>
+  </section>
+
+
+  <hr class="section-divider">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Project Info Grid</title>
+    <link rel="stylesheet" href="info-grid.css" />
+  </head>
+  <body>
+  
+    <div class="info-section fade-in-up">
+      <!-- First Row: CHALLENGE and OPPORTUNITY -->
+      <div class="info-grid">
+        <div class="info-col">
+          <h3>CHALLENGE</h3>
+          <p>
+            Learn Siemens NX, Ansys Fluent, while learning how rocket engine systems operate and work.
+          </p>
+        </div>
+        <div class="info-col">
+          <h3>Process</h3>
+          <p>
+            Used drawings, reference videos, and prior CAD experience to create the part. 
+          </p>
+        </div>
+      </div>
+      <hr class="section-divider">
+      
+          </p>
+        </div>
+      </div>
+    </div>
+  
+  </body>
+  </html>
+  
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <h1>Brian Luu</h1>
+    <p>Aerospace Engineer</p>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="resume.html">Resume</a></li>
+      <li><a href="https://www.linkedin.com/in/brian-luu-uci/"></a>LinkedIn</li>
+    </ul>
+  </aside>
+
+  <!-- Scripts -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+  const animatedElements = document.querySelectorAll('.fade-in-up');
+  const observerOptions = {
+    threshold: 0.2  // Trigger when 20% of the element is visible
+  };
+
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  animatedElements.forEach(el => {
+    observer.observe(el);
+  });
+});
+  </script>
+  
+</body>
+</html>
+
+</script>
+
+<!-- ===== FEATURE SECTION ===== -->
+<div class="feature-section fade-in-up">
+  <!-- Section Header -->
+  <h2 class="feature-section-header">Process and Features</h2>
+
+  <!-- All your rows live here -->
+  <section class="feature-rows fade-in-up">
+
+    <!-- Row 1: Text left, Image right -->
+    <div class="feature-row fade-in-up">
+      <div class="feature-text">
+        <h3>Nozzle Design</h3>
+        <p><br> Using RPA, inputted an arbitrary thrust force, and then modeled the rocket nozzle shape. </p>
+      </div>
+      <div class="feature-image fade-in-up">
+        <!-- ← Put your second image here -->
+        <img src="Media/RocketFullAssembly.png" alt="Card layout screenshot">
+      </div>
+    </div>
+
+     <!-- Row 1: Text left, Image right -->
+     <div class="feature-row fade-in-up">
+        <div class="feature-text">
+          <h3>Nozzle RPA Analysis</h3>
+          <p><br>RPA outputted dimensions that would shape the nozzle, as well as, describing different values. </p>
+        </div>
+        <div class="feature-image fade-in-up">
+          <!-- ← Put your second image here -->
+          <img src="Media/NozzleRPA.png" alt="Card layout screenshot">
+        </div>
+      </div>
+
+      
+     <!-- Row 1: Text left, Image right -->
+     <div class="feature-row fade-in-up">
+        <div class="feature-text">
+          <h3>Injector Design</h3>
+          <p><br> My greatest challenge was a lack of online sources that taught me how to develop a Coaxial Swirler. I based my design mainly on Copenhagen Suborbitals' swirler design, while sourcing dimensions from other collegiate rocket projects and NASA.  </p>
+        </div>
+        <div class="feature-image fade-in-up">
+          <!-- ← Put your second image here -->
+          <img src="Media/CoaxialSwirler.png" alt="Card layout screenshot">
+        </div>
+      </div>
+
+   <!-- Row 1: Text left, Image right -->
+   <div class="feature-row fade-in-up">
+    <div class="feature-text">
+      <h3>Injector Plate</h3>
+      <p><br> Designed an additional housing that would allow the numerous injectors to be attached to the nozzle design above.  </p>
+    </div>
+    <div class="feature-image fade-in-up">
+      <!-- ← Put your second image here -->
+      <img src="Media/InjectorPlate.png" alt="Card layout screenshot">
+    </div>
+  </div>
+
+     <!-- Row 1: Text left, Image right -->
+     <div class="feature-row fade-in-up">
+        <div class="feature-text">
+          <h3>Coaxial Swirler Injector Testing</h3>
+          <p><br> Used ANSYS Fluent to develop velocity streamlines and flow lines that described fluid motion through the injector.  </p>
+        </div>
+        <div class="feature-image fade-in-up">
+          <!-- ← Put your second image here -->
+          <img src="Media/AnsysFlow.png" alt="Card layout screenshot">
+        </div>
+      </div>
+
+<!-- Row 1: Text left, Image right -->
+<div class="feature-row fade-in-up">
+    <div class="feature-text">
+      <h3>Coaxial Swirler Injector Testing</h3>
+      <p><br> Velocity contour plot that describes fluid flow through the swirler.  </p>
+    </div>
+    <div class="feature-image fade-in-up">
+      <!-- ← Put your second image here -->
+      <img src="Media/VelocityAnsys.png" alt="Card layout screenshot">
+    </div>
+  </div>
+
+  </section>
+</div>

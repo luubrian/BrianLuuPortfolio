@@ -655,7 +655,7 @@ a.article-button {
     flex-direction: column;
     gap: 1rem;
   }
-  .feature-text,
+  .feature-text
   .feature-image {
     flex: 0 0 100%;
     max-width: 100%;

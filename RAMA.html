@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>RAMA</title>
+  <!-- Link to External CSS -->
+  <link rel="stylesheet" href="RAMA.css" />
+</head>
+<body>
+  <!-- Hero Section with Autoplay Video -->
+  <section class="hero">
+      <!-- Replace 'Media/ExplodedView.mp4' with your actual video file -->
+      <img src="Media/RAMAHero.png" alt="Project 1 Front" class="image-front">
+    <div class="hero-overlay-text">
+      <p>Scroll down to learn more</p>
+    </div>
+  </div>
+    
+  </section>
+  
+  <hr class="section-divider">
+
+  <!-- Additional Content Example -->
+  <section class="hero-content fade-in-up">
+    <h1>R.A.M.A.</h1>
+    <p>
+     High School Senior Design Project
+    </p>
+    <div class="project-roles">
+        <span>Autodesk Inventor</span> | <span>3D Printing</span> | <span>Laser Cutting</span> | <span>Arduino</span>
+    </div>
+  </section>
+
+
+  <hr class="section-divider">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Project Info Grid</title>
+    <link rel="stylesheet" href="info-grid.css" />
+  </head>
+  <body>
+  
+    <div class="info-section fade-in-up">
+      <!-- First Row: CHALLENGE and OPPORTUNITY -->
+      <div class="info-grid">
+        <div class="info-col">
+          <h3>CHALLENGE</h3>
+          <p>
+            Design and build a robotic arm in High School Engineering Lab with a limited budget. 
+          </p>
+        </div>
+        <div class="info-col">
+          <h3>Process</h3>
+          <p>
+            Tasked with designing housing for the joints as well as electronics and programming.
+          </p>
+        </div>
+      </div>
+      <hr class="section-divider">
+      
+          </p>
+        </div>
+      </div>
+    </div>
+  
+  </body>
+  </html>
+  
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <h1>Brian Luu</h1>
+    <p>Aerospace Engineer</p>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="resume.html">Resume</a></li>
+      <li><a href="https://www.linkedin.com/in/brian-luu-uci/"></a>LinkedIn</li>
+    </ul>
+  </aside>
+
+  <!-- Scripts -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+  const animatedElements = document.querySelectorAll('.fade-in-up');
+  const observerOptions = {
+    threshold: 0.2  // Trigger when 20% of the element is visible
+  };
+
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  animatedElements.forEach(el => {
+    observer.observe(el);
+  });
+});
+  </script>
+  
+</body>
+</html>
+
+</script>
+
+<!-- ===== FEATURE SECTION ===== -->
+<div class="feature-section fade-in-up">
+  <!-- Section Header -->
+  <h2 class="feature-section-header">A380 Key Features</h2>
+
+  <!-- All your rows live here -->
+  <section class="feature-rows fade-in-up">
+
+    <!-- Row 1: Text left, Image right -->
+    <div class="feature-row fade-in-up">
+      <div class="feature-text">
+        <h3>Arduino, code, and Control Panel. </h3>
+        <p><br>I learned how to program and wire the circuits without prior knowledge of Arduino and circuits. Designed and laser cut to manufacture housing. </p>
+      </div>
+      <div class="feature-image fade-in-up">
+        <!-- ← Put your second image here -->
+        <img src="Media/Arduino Housing.png" alt="Card layout screenshot">
+      </div>
+    </div>
+
+  <!-- Row 3: Image left (auto-flipped), Text right -->
+  <div class="feature-row fade-in-up">
+    <div class="feature-text fade-in-up">
+      <h3>Cycloidal Drive</h3>
+      <p><br> Uses gears and aluminum dowels to create an eccentric path that creates a gear ratio.</p>
+    </div>
+    <div class="feature-image fade-in-up">
+      <video 
+        src="Media/cycloidal__47pct_smaller.mp4" 
+        autoplay 
+        muted 
+        loop 
+        playsinline 
+       
+      ></video>
+    </div>
+  </div>
+
+     <!-- Row 1: Text left, Image right -->
+     <div class="feature-row fade-in-up">
+      <div class="feature-text">
+        <h3>Motor and Joints </h3>
+        <p> <br> Designed in Autodesk Inventor and 3D printed housing for NEMA17 motors. Heat inserts to fasten lid. Printed in ABS.</p>
+      </div>
+      <div class="feature-image fade-in-up">
+        <!-- ← Put your second image here -->
+        <img src="Media/MotorHousing.jpg" alt="Card layout screenshot">
+      </div>
+    </div>
+
+    <!-- Add more rows the same way… -->
+  </section>
+</div>
