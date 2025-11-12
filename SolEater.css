@@ -125,21 +125,36 @@ html, body {
     overflow: hidden;
   }
   
-  .hero video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Ensures the video covers the container */
-    z-index: -1;       /* Places the video behind the content */
-    opacity: 0;
-    animation: fadeInUp 5s ease forwards;
-    animation-delay: 0.1s;
-    border: 3px solid #333;
-    cursor: s-resize;
-    
-  }
+/* Hero section container */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* full viewport height */
+  overflow: hidden;
+}
+
+/* Background image styling */
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* make it fill without distortion */
+  display: block;
+}
+
+/* Overlay text on top of the hero image */
+.hero-overlay-text {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  background: rgba(0, 0, 0, 0.4); /* subtle background behind text */
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 1.2rem;
+  letter-spacing: 0.5px;
+}
+
   
   
   @keyframes fadeInUpContent {
@@ -675,3 +690,70 @@ a.article-button {
   display: block;
 }
 
+/* Reset defaults */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Reset defaults */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Wrapper occupies right 90% of the screen */
+.gallery-wrapper {
+  width: 90vw;
+  margin-left: auto;      /* push to right side */
+  padding: 20px;
+  min-height: 100vh;
+  background: transparent; /* ✅ transparent background */
+}
+
+/* 3x3 grid layout */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: minmax(140px, 1fr);
+  gap: 12px;
+  align-items: stretch;
+}
+
+/* Each image cell */
+.tile {
+  overflow: hidden;
+  border-radius: 8px;
+  background: transparent; /* ✅ transparent tile background */
+  display: block;
+  position: relative;
+}
+
+/* Image fills cell */
+.tile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.35s ease;
+}
+
+/* Hover effect */
+.tile:hover img {
+  transform: scale(1.03);
+}
+
+/* Responsive: adjust columns on smaller screens */
+@media (max-width: 900px) {
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .gallery {
+    grid-template-columns: 1fr;
+  }
+}
